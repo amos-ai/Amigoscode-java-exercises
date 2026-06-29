@@ -1,4 +1,4 @@
-package com.amigoscode._1_beginners._1_thebasics;
+package com.amigoscode._1_beginners;
 
 /**
  * Exercise: Arrays
@@ -6,7 +6,7 @@ package com.amigoscode._1_beginners._1_thebasics;
  * Learn how to declare, initialize, and work with arrays in Java.
  * Arrays are fixed-size containers that hold elements of the same type.
  */
-public class ArrayExercises {
+public class _6_ArrayExercises {
 
     public static void main(String[] args) {
 

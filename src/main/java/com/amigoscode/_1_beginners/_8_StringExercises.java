@@ -1,4 +1,4 @@
-package com.amigoscode._1_beginners._1_thebasics;
+package com.amigoscode._1_beginners;
 
 /**
  * Exercise: Strings
@@ -7,7 +7,7 @@ package com.amigoscode._1_beginners._1_thebasics;
  * Strings are objects that represent sequences of characters and come with
  * many useful built-in methods.
  */
-public class StringExercises {
+public class _8_StringExercises {
 
     public static void main(String[] args) {
 

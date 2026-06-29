@@ -1,4 +1,4 @@
-package com.amigoscode._1_beginners._1_thebasics;
+package com.amigoscode._1_beginners;
 
 /**
  * Exercise: Methods
@@ -6,7 +6,7 @@ package com.amigoscode._1_beginners._1_thebasics;
  * Learn how to define and call methods in Java.
  * Methods allow you to organize code into reusable blocks, each performing a specific task.
  */
-public class MethodExercises {
+public class _7_MethodExercises {
 
     // TODO: 1 - Create a method called greet that takes a String parameter 'name'
     // and prints "Hello, {name}!"

@@ -1,4 +1,4 @@
-package com.amigoscode._1_beginners._1_thebasics;
+package com.amigoscode._1_beginners;
 
 /**
  * Exercise: Variables and Data Types
@@ -6,7 +6,7 @@ package com.amigoscode._1_beginners._1_thebasics;
  * Learn how to declare and use variables of different types in Java.
  * Java is a statically-typed language, meaning every variable must have a declared type.
  */
-public class Variables {
+public class _1_Variables {
 
     public static void main(String[] args) {
 

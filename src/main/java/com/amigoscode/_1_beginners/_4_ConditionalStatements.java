@@ -1,4 +1,4 @@
-package com.amigoscode._1_beginners._1_thebasics;
+package com.amigoscode._1_beginners;
 
 /**
  * Exercise: Conditional Statements
@@ -6,7 +6,7 @@ package com.amigoscode._1_beginners._1_thebasics;
  * Learn how to control the flow of your program using if/else and switch statements.
  * Conditional statements allow your program to make decisions based on conditions.
  */
-public class ConditionalStatements {
+public class _4_ConditionalStatements {
 
     public static void main(String[] args) {
 
