@@ -1,5 +1,10 @@
 package com.amigoscode._1_beginners;
 
+import javax.print.DocFlavor;
+import java.lang.reflect.Array;
+import java.util.Calendar;
+import java.util.Date;
+
 /**
  * Exercise: Conditional Statements
  *
@@ -13,7 +18,11 @@ public class _4_ConditionalStatements {
         // TODO: 1 - Write an if statement that prints "Positive" if a number is greater than 0
         // Declare an int variable called number and assign it a positive value.
 
-        int number = 7;
+
+        int number = 3;
+        if(number > 0) {
+        System.out.println("Positive");
+        } else System.out.println("Not Positive");
 
         // TODO: 2 - Add an else clause to the above that prints "Not positive"
         // Change the value of number to a negative value or 0 to test both branches.
@@ -26,7 +35,16 @@ public class _4_ConditionalStatements {
         // Else if score >= 70, print "Grade: C"
         // Else print "Grade: F"
 
-        int score = 85;
+        int score = 75;
+        if (score >= 90) {
+            System.out.println("Grade: A");
+        } else if (score >= 80) {
+            System.out.println("Grade: B");
+        } else if (score >= 70) {
+            System.out.println("Grade: C");
+        } else {
+            System.out.println("Grade: F");
+        }
 
 
         // TODO: 4 - Write a switch statement for day of the week
@@ -35,7 +53,33 @@ public class _4_ConditionalStatements {
         //   1 -> "Monday", 2 -> "Tuesday", ... 7 -> "Sunday"
         // Include a default case for invalid values.
 
-        int day = 3;
+        int day = 6;
+        switch (day) {
+            case 1:
+                System.out.println("Monday");
+                break;
+            case 2:
+                System.out.println("Tuesday");
+                break;
+            case 3:
+                System.out.println("Wednesday");
+                break;
+            case 4:
+                System.out.println("Thursday");
+                break;
+            case 5:
+                System.out.println("Friday");
+                break;
+            case 6:
+                System.out.println("Saturday");
+                break;
+            case 7:
+                System.out.println("Sunday");
+                break;
+            default:
+                System.out.println("See you in the weekend!");
+        }
+
 
 
         // TODO: 5 - Use a switch statement with a String
@@ -43,7 +87,21 @@ public class _4_ConditionalStatements {
         // Use a switch statement to print the number of days in that month.
         // Handle at least 3-4 months plus a default case.
 
-        String month = "February";
+        String month = "October";
+        switch (month) {
+            case "January", "March", "May", "July", "August", "October", "December":
+                System.out.println(month + " has 31 days");
+                break;
+            case "April", "June", "September", "November":
+                System.out.println(month + " has 30 days");
+                break;
+            case "February":
+                System.out.println(month + " has 28 days");
+
+            default:
+                System.out.println("Month doesn't exist. Please check the spelling");
+        }
+
 
 
         // TODO: 6 - Use a switch expression (Java 14+) to return a value
@@ -54,6 +112,18 @@ public class _4_ConditionalStatements {
         //       ...
         //   };
         // Print the result.
+        String dayName = switch(day) {
+            case 1 -> "Monday";
+            case 2 -> "Tuesday";
+            case 3 -> "Wednesday";
+            case 4 -> "Thursday";
+            case 5 -> "Friday";
+            case 6 -> "Saturday";
+            case 7 -> "Sunday";
+            default -> "Invalid day";
+        };
+        System.out.println(dayName);
+
 
 
         // TODO: 7 - Write a nested if statement to check if a number is positive AND even
@@ -64,7 +134,17 @@ public class _4_ConditionalStatements {
         //     Else print "Positive and odd"
         //   Else print "Not positive"
 
-        int value = 8;
+        int value = 5;
+
+        if (value > 0) {
+            if (value % 2 == 0) {
+                System.out.println("Positive and even");
+            } else {
+                System.out.println("Positive and odd");
+            }
+        } else {
+            System.out.println("Not Positive");
+        }
 
     }
 }
