@@ -12,6 +12,7 @@ public class _5_LoopExercises {
 
 
 
+        /*
         // TODO: 1 - Write a for loop to print numbers 1 to 10
         // Hint: for (int i = 1; i <= 10; i++) { ... }
         for (int i = 1; i <= 10; i++) {
@@ -109,6 +110,7 @@ public class _5_LoopExercises {
             }
             System.out.println(i);
         }
+         */
 
 
     }
