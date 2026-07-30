@@ -18,7 +18,8 @@ public class IfStatements {
     public static String evenOrOdd(int number) {
         // TODO: 1 - Use the ternary operator ( condition ? valueIfTrue : valueIfFalse )
         //  to return "Even" or "Odd" based on whether number % 2 == 0.
-        return null;
+        String evenOrOdd = (number % 2 == 0) ? "Even" : "Odd";
+        return evenOrOdd;
     }
 
     /**
@@ -33,6 +34,8 @@ public class IfStatements {
     public static boolean isEligibleForLoan(int age, double income, boolean hasGuarantor) {
         // TODO: 2 - Use a single return statement with && and || operators
         //  to express the eligibility condition described above.
+        if ((age >= 18 && income >= 30000) ||  (hasGuarantor && age >= 16)){
+        }
         return false;
     }
 
@@ -46,7 +49,12 @@ public class IfStatements {
     public static String getGrade(int score) {
         // TODO: 3 - Use nested ternary operators to return the correct grade.
         //  Example pattern: score >= 90 ? "A" : score >= 80 ? "B" : ...
-        return null;
+        String gradeScore = (score >= 90 && score <= 100) ? "A"
+                : (score >= 80 && score <= 89) ? "B"
+                : (score >= 70 && score <= 79) ? "C"
+                : (score >= 60 && score <= 69) ? "D"
+                : "F";
+        return gradeScore;
     }
 
     /**
@@ -59,7 +67,11 @@ public class IfStatements {
     public static int safeLength(String text) {
         // TODO: 4 - Check if text is null before calling text.length().
         //  Return -1 if text is null, otherwise return text.length().
-        return 0;
+        if (text == null) {
+            return -1;
+        } else {
+            return text.length();
+        }
     }
 
     /**
@@ -75,8 +87,16 @@ public class IfStatements {
         //  If both are null, return true.
         //  If only one is null, return false.
         //  Otherwise, use a.equals(b) — never use == for string content comparison.
-        return false;
+        if (a.equals(b)) {
+            return true;
+        } else if (a == null || b == null) {
+            return false;
+        } else {
+            return false;
+        }
+
     }
+
 
     /**
      * Returns the name of the day of the week for numbers 1 (Monday) through 7 (Sunday).
@@ -95,8 +115,18 @@ public class IfStatements {
         //      ...
         //      default -> "Invalid";
         //  };
-        return null;
-    }
+          String result = switch (day) {
+            case 1 -> "Monday";
+            case 2 -> "Tuesday";
+            case 3 -> "Wednesday";
+            case 4 -> "Thursday";
+            case 5 -> "Friday";
+            case 6 -> "Saturday";
+            case 7 -> "Sunday";
+            default -> "invalid";
+        };
+         return result;
+    };
 
     public static void main(String[] args) {
         System.out.println("=== Ternary Operator ===");
@@ -111,15 +141,15 @@ public class IfStatements {
         System.out.println("\n=== Nested Ternary (Grades) ===");
         System.out.println("Score 95: " + getGrade(95));
         System.out.println("Score 72: " + getGrade(72));
-        System.out.println("Score 55: " + getGrade(55));
+        System.out.println("Score 65: " + getGrade(65));
 
         System.out.println("\n=== Null Check ===");
-        System.out.println("Length of 'hello': " + safeLength("hello"));
+        System.out.println("Length of 'hello': " + safeLength("Length of text"));
         System.out.println("Length of null: " + safeLength(null));
 
         System.out.println("\n=== String Equality ===");
         System.out.println("'abc' equals 'abc': " + safeEquals("abc", "abc"));
-        System.out.println("'abc' equals null: " + safeEquals("abc", null));
+        System.out.println("'abc' equals null: " + safeEquals("abc", "cba"));
         System.out.println("null equals null: " + safeEquals(null, null));
 
         System.out.println("\n=== Switch Expression ===");
