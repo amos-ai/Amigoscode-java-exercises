@@ -20,7 +20,8 @@ public class DateExercises {
      */
     public static LocalDate getToday() {
         // TODO: 1 - Use LocalDate.now() to get and return today's date.
-        return null;
+        LocalDate today = LocalDate.now();
+        return today;
     }
 
     /**
@@ -30,7 +31,8 @@ public class DateExercises {
      */
     public static LocalDate getIndependenceDay() {
         // TODO: 2 - Use LocalDate.of(year, month, day) to create and return July 4, 1776.
-        return null;
+        LocalDate past = LocalDate.of(1776, 7, 4);
+        return past;
     }
 
     /**
@@ -40,7 +42,8 @@ public class DateExercises {
      */
     public static LocalDateTime getCurrentDateTime() {
         // TODO: 3 - Use LocalDateTime.now() to get and return the current date and time.
-        return null;
+        LocalDateTime now = LocalDateTime.now();
+        return now;
     }
 
     /**
@@ -56,7 +59,9 @@ public class DateExercises {
         // TODO: 4 - Use plusDays(), plusMonths(), and plusYears() on the date.
         //  Remember: LocalDate is immutable, so each method returns a NEW LocalDate.
         //  Chain the calls or apply them sequentially.
-        return null;
+
+        date =  date.plusDays(days).plusMonths(months).plusYears(years);
+        return date;
     }
 
     /**
@@ -69,7 +74,16 @@ public class DateExercises {
     public static String compareDates(LocalDate date1, LocalDate date2) {
         // TODO: 5 - Use isBefore() and isAfter() methods on date1 to compare with date2.
         //  Return "before", "after", or "equal".
-        return null;
+
+        if (date1.isBefore(date2)) {
+            System.out.println("Before");
+        } else if (date1.isAfter(date2)) {
+            System.out.println("After");
+        } else {
+            System.out.println("Equal");
+        }
+        return date1.toString();
+
     }
 
     /**
@@ -84,7 +98,10 @@ public class DateExercises {
         // TODO: 6 - Create a DateTimeFormatter using DateTimeFormatter.ofPattern(pattern).
         //  Use date.format(formatter) to format the date.
         //  Return the formatted string.
-        return null;
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(pattern);
+        return date.format(formatter);
+
+
     }
 
     /**
@@ -98,7 +115,8 @@ public class DateExercises {
         // TODO: 7 - Create a DateTimeFormatter with the pattern "dd-MM-yyyy".
         //  Use LocalDate.parse(dateString, formatter) to parse the string.
         //  Return the resulting LocalDate.
-        return null;
+        DateTimeFormatter parsser = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        return LocalDate.parse(dateString, parsser);
     }
 
     public static void main(String[] args) {
@@ -117,7 +135,7 @@ public class DateExercises {
 
         System.out.println("\n=== Compare Dates ===");
         LocalDate past = LocalDate.of(2020, 1, 1);
-        LocalDate future = LocalDate.of(2030, 12, 31);
+        LocalDate future = LocalDate.of(2020, 1, 1);
         System.out.println("2020-01-01 vs 2030-12-31: " + compareDates(past, future));
         System.out.println("2030-12-31 vs 2020-01-01: " + compareDates(future, past));
 
