@@ -23,7 +23,8 @@ public class BigDecimalExercises {
         // TODO: 1 - Create and return a BigDecimal using new BigDecimal(value).
         //  The String constructor preserves the exact decimal value.
         //  NEVER use new BigDecimal(0.1) — see TODO 6 for why.
-        return null;
+        BigDecimal string = new BigDecimal(value);
+        return string;
     }
 
     /**
@@ -36,7 +37,8 @@ public class BigDecimalExercises {
     public static BigDecimal addValues(BigDecimal a, BigDecimal b) {
         // TODO: 2 - Use the add() method to add a and b. Return the result.
         //  Remember: BigDecimal is immutable, so add() returns a NEW BigDecimal.
-        return null;
+        BigDecimal result = a.add(b);
+        return result;
     }
 
     /**
@@ -48,7 +50,8 @@ public class BigDecimalExercises {
      */
     public static BigDecimal multiplyValues(BigDecimal a, BigDecimal b) {
         // TODO: 3 - Use the multiply() method to multiply a and b. Return the result.
-        return null;
+        BigDecimal result = a.multiply(b);
+        return result;
     }
 
     /**
@@ -63,7 +66,8 @@ public class BigDecimalExercises {
         // TODO: 4 - Use a.divide(b, scale, RoundingMode.HALF_UP) to divide.
         //  You MUST specify a rounding mode for division, otherwise you may get
         //  an ArithmeticException for non-terminating decimals (like 1/3).
-        return null;
+        BigDecimal round = a.divide(b, scale, RoundingMode.HALF_UP);
+        return round;
     }
 
     /**
@@ -80,7 +84,8 @@ public class BigDecimalExercises {
         // TODO: 5 - Use a.compareTo(b) to compare the two values.
         //  Return the result (which will be -1, 0, or 1).
         //  Do NOT use equals() for numeric comparison!
-        return 0;
+        int values = a.compareTo(b);
+        return values;
     }
 
     /**
@@ -94,6 +99,12 @@ public class BigDecimalExercises {
         //  Print both values. Notice that fromDouble is NOT exactly 0.1!
         //  It will show something like 0.1000000000000000055511151231257827021181583404541015625
         //  Print a message explaining why the String constructor should be preferred.
+        BigDecimal fromDouble = new BigDecimal(0.1);
+        BigDecimal fromString = new BigDecimal("0.1");
+
+        System.out.println(fromDouble);
+        System.out.println(fromString);
+        System.out.println("BigDecimal converts the String constructor to a decimal point with precision.");
 
     }
 
@@ -118,8 +129,8 @@ public class BigDecimalExercises {
         System.out.println("10 / 3 (5 decimals): " + divideValues(ten, three, 5));
 
         System.out.println("\n=== Comparison ===");
-        BigDecimal val1 = new BigDecimal("2.0");
-        BigDecimal val2 = new BigDecimal("2.00");
+        BigDecimal val1 = new BigDecimal("6.0");
+        BigDecimal val2 = new BigDecimal("4.00");
         System.out.println("2.0 compareTo 2.00: " + compareValues(val1, val2));
         System.out.println("2.0 equals 2.00: " + val1.equals(val2) + " (WRONG way to compare!)");
 
