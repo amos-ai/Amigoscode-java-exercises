@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
+import java.util.stream.Stream;
 
 /**
  * File Reading Exercises
@@ -30,7 +31,8 @@ public class FileReading {
     public static List<String> readAllLines(String filePath) throws IOException {
         // TODO: 1 - Use Files.readAllLines(Path.of(filePath)) to read all lines.
         //  Return the resulting List<String>.
-        return null;
+        List <String> lists = Files.readAllLines(Path.of(filePath));
+        return lists;
     }
 
     /**
@@ -47,7 +49,15 @@ public class FileReading {
         //      Print each line.
         //  }
 
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))){
+
+             String line;
+            while ((line = reader.readLine()) !=  null) {
+            System.out.println(line);
+            }
+        }
     }
+
 
     /**
      * Counts the number of lines in a file.
@@ -60,7 +70,11 @@ public class FileReading {
         // TODO: 3 - Read the file line by line and count the lines.
         //  You can use Files.readAllLines() and call .size(),
         //  or use Files.lines() with .count() for a stream-based approach.
-        return 0;
+         //List<String> reader = Files.readAllLines(Path.of(filePath));
+         Stream<String> reader = Files.lines(Path.of(filePath));
+        long counter =  reader.count();
+
+        return counter;
     }
 
     /**
@@ -76,7 +90,11 @@ public class FileReading {
         //  Filter the lines to only include those that contain the given word.
         //  Hint: use a for loop and an ArrayList to collect matching lines,
         //  or use Files.readAllLines().stream().filter(...).toList()
-        return null;
+        List<String> words = Files.readAllLines(Path.of(filePath))
+                .stream()
+                .filter(w -> w.contains(word))
+                .toList();
+        return words;
     }
 
     /**
@@ -89,7 +107,8 @@ public class FileReading {
     public static String readFileAsString(String filePath) throws IOException {
         // TODO: 5 - Use Files.readString(Path.of(filePath)) to read the entire file
         //  as a single String. Return it.
-        return null;
+        String content = Files.readString(Path.of(filePath));
+        return content;
     }
 
     /**
@@ -103,7 +122,14 @@ public class FileReading {
         //  Catch FileNotFoundException (or NoSuchFileException) and return
         //  "File not found: " + filePath.
         //  Catch IOException and return "Error reading file: " + e.getMessage().
-        return null;
+        try {
+            Files.readString(Path.of(filePath));
+        } catch (FileNotFoundException e) {
+            return "File not found: " + filePath;
+        } catch (IOException e) {
+        return "Error reading file: " + e.getMessage();
+        }
+        return "Found file: " + filePath;
     }
 
     public static void main(String[] args) throws IOException {
@@ -132,9 +158,9 @@ public class FileReading {
         if (content != null) System.out.println(content);
 
         System.out.println("\n=== Handle Missing File ===");
-        System.out.println(handleMissingFile("nonexistent.txt"));
+        System.out.println(handleMissingFile("non-exists.txt"));
 
         // Clean up test file
-        Files.deleteIfExists(Path.of(testFile));
+        //Files.deleteIfExists(Path.of(testFile));
     }
 }
