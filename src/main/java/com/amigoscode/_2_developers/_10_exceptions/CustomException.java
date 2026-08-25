@@ -15,7 +15,19 @@ public class CustomException {
     //  - Have a constructor that takes a String message and double amount,
     //    calls super(message), and stores the amount
     //  - Have a getter: double getAmount()
-    //  Define it as a static inner class here, or as a separate class in this package.
+    //  Define it as a static inner class here, or as a separate class in this package
+    static class InsufficientFundsException  extends Exception {
+        // Inherits functionalities from the in-built Exception
+        private final double amount;
+
+        public InsufficientFundsException (String message, double amount) {
+            super(message);
+            this.amount = amount;
+        }
+        public double getAmount() {
+            return amount;
+        }
+    }
 
 
     // TODO: 2 - Create a custom UNCHECKED exception class called InvalidAgeException.
@@ -25,7 +37,12 @@ public class CustomException {
     //  - Have a constructor that takes a String message and a Throwable cause,
     //    and calls super(message, cause)
     //  Define it as a static inner class here.
+    static class InvalidAgeException extends RuntimeException {
 
+        public InvalidAgeException(String message, Throwable cause) {
+            super(message, cause);
+        }
+    }
 
     // TODO: 3 - Create a static inner class BankAccount with:
     //  - A private double 'balance' field
@@ -35,11 +52,39 @@ public class CustomException {
     //    message and the shortfall amount (amount - balance).
     //    Otherwise, subtract amount from balance.
     //  - A method: double getBalance()
+    static class BankAccount {
+        private double balance;
+
+        public BankAccount () {
+            this.balance = balance;
+        }
+
+        public void withdraw(double amount, String message) throws InsufficientFundsException {
+
+            if (amount > balance) {
+                throw new InsufficientFundsException(message, amount);
+            } else {
+                System.out.println(amount - balance);
+            }
+        }
+
+        public double getBalance() {
+            return balance ;
+        }
+
+    }
 
 
     // TODO: 4 - Create a static method: void validateAge(int age)
     //  If age < 0 or age > 150, throw a new InvalidAgeException with an appropriate message.
     //  Otherwise, print "Age " + age + " is valid."
+    public static void validateAge(int age, String message, Throwable cause) {
+        if (age < 0 || age >150) {
+            throw new InvalidAgeException(message, cause);
+        } else {
+            System.out.println("Age " + age + " is valid");
+        }
+    }
 
 
     public static void main(String[] args) {
