@@ -28,15 +28,27 @@ public class ShapeCalculator {
     //   Print: "The <className> has an area of <area>"
     //   Use shape.getClass().getSimpleName() to get the class name.
     //   Use String.format("%.2f", shape.area()) for formatting.
+    void printShapeArea(Shape shape) {
+        System.out.println(String.format("The %s has and area of %.2f%s",  shape.getClass().getSimpleName(), shape.area() ));
+
+    }
 
 
     // TODO: 2 - Create a method: double totalArea(List<Shape> shapes)
     //   Iterate over all shapes and return the sum of their areas.
+    double totalArea(List<Shape> shapes) {
+        double total = 0;
+        for (Shape sh : shapes) {
+
+        }
+        return total;
+    }
 
 
     // TODO: 3 - Create a method: Shape largestShape(List<Shape> shapes)
     //   Return the shape with the largest area.
     //   If the list is empty, return null.
+
 
 
     // TODO: 4 - Create a method: String describeShape(Shape shape)
