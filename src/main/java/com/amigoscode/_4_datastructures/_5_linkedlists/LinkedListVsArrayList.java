@@ -13,6 +13,14 @@ public class LinkedListVsArrayList {
 
         // TODO: 1 - Create both an ArrayList<Integer> and a LinkedList<Integer>
         //           Fill each with 10000 elements (0 to 9999) using a for loop
+        ArrayList<Integer> arrayList = new ArrayList<>();
+        LinkedList<Integer> linkedList = new LinkedList<>();
+
+        for (int i = 0; i < 1000; i++) {
+            arrayList.add(i);
+            linkedList.add(i);
+        }
+
 
 
         // TODO: 2 - Measure time to add an element at the beginning (index 0) for both lists
@@ -20,6 +28,26 @@ public class LinkedListVsArrayList {
         //           Perform the add(0, value) operation 1000 times for each list
         //           Print the time taken for each in milliseconds
         //           (divide nanoseconds by 1_000_000 to get milliseconds)
+        long arrayListStart = System.nanoTime();
+        for (int i = 0; i < 1000; i++) {
+            arrayList.add(0, i);
+        }
+        long arrayListEnd = System.nanoTime();
+
+        long arrayListTime = (arrayListEnd - arrayListStart) / 1_000_000;
+
+
+        long linkedListStart = System.nanoTime();
+        for (int i = 0; i < 1000; i++) {
+            linkedList.add(0, i);
+        }
+        long linkedListEnd = System.nanoTime();
+
+        long linkedListTime = (linkedListEnd - linkedListStart) / 1_000_000;
+
+        System.out.println("ArrayList; " + arrayListTime + "ms");
+        System.out.println("LinkedList; " + linkedListTime + "ms");
+
 
 
         // TODO: 3 - Measure time to add an element at the end for both lists
