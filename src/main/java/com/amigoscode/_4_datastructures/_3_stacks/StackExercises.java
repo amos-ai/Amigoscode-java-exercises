@@ -10,21 +10,29 @@ public class StackExercises {
     public static void main(String[] args) {
 
         // TODO: 1 - Create a Stack of Strings called 'stack'
-
+        Stack<String> stack = new Stack<>();
 
         // TODO: 2 - Push 5 elements onto the stack: "Java", "Python", "C++", "JavaScript", "Go"
+        stack.push("Java");
+        stack.push("Python");
+        stack.push("C++");
+        stack.push("GO");
+        stack.push("JavaScript");
 
 
         // TODO: 3 - Peek at the top element without removing it
         //           Print the result (should be "Go")
-
+        System.out.println(stack.peek());
 
         // TODO: 4 - Pop an element from the stack and print it
         //           Then print the stack to see the remaining elements
+        stack.pop();
+        System.out.println(stack);
 
 
         // TODO: 5 - Check if the stack is empty using isEmpty()
         //           Print the result
+        System.out.println(stack.isEmpty());
 
 
         // --- String Reversal ---
@@ -33,6 +41,17 @@ public class StackExercises {
         // TODO: 6 - Use a Stack to reverse the string 'original'
         //           Push each character onto a stack, then pop them all to build the reversed string
         //           Print both original and reversed strings
+        Stack<Character> reverse = new Stack<>();
+        for (int i = 0; i < original.length(); i++) {
+            reverse.push(original.charAt(i));
+        }
+        Stack<Character> reversed = new Stack<>();
+
+        while (!reverse.isEmpty()) {
+            reversed.add(reverse.pop());
+        }
+        System.out.println("Original: " + original);
+        System.out.println("Reversed: " + reversed);
 
 
         // --- Balanced Brackets ---
@@ -45,6 +64,5 @@ public class StackExercises {
         //           that the top of stack is the matching opening bracket
         //           Test with both 'balanced' and 'unbalanced' strings
         //           Print whether each string is balanced or not
-
     }
 }
