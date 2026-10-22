@@ -1,5 +1,7 @@
 package com.amigoscode._6_functionalinterfaces._1_gettingstarted;
 
+import org.w3c.dom.ls.LSOutput;
+
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
@@ -22,6 +24,10 @@ public class LambdaExpressions {
         // TODO: 1 - Create a Comparator<String> as a lambda that compares strings
         //  by their length (shorter strings first). Use it to sort the names list.
         //  Hint: Use names.sort(...) or Collections.sort(names, ...)
+        Comparator<String> compare = (a, b) -> {
+            return a.length() - b.length();
+        };
+        names.sort(compare);
 
 
         System.out.println("Sorted by length: " + names);
@@ -37,22 +43,27 @@ public class LambdaExpressions {
         // TODO: 4 - The following multi-line lambda calculates the sum of two
         //  integers. Rewrite it as a single-expression lambda (no curly braces,
         //  no return keyword). Assign it to a variable called sumShort.
-        BiFunction<Integer, Integer, Integer> sumVerbose = (Integer a, Integer b) -> {
-            int result = a + b;
-            return result;
-        };
-        System.out.println("Verbose sum: " + sumVerbose.apply(3, 4));
+        BiFunction<Integer, Integer, Integer> sumShort = (Integer a, Integer b) ->  a + b;
+        System.out.println("Verbose sum: " + sumShort.apply(8, 45));
+
+
 
 
         // TODO: 5 - Create a BiFunction<String, String, String> lambda that
         //  concatenates two strings with " + " in between.
         //  Example: ("Hello", "World") -> "Hello + World"
+        BiFunction<String, String, String> greet = (String a, String b) -> a + " + " + b;
+        System.out.println(greet.apply("HEllo", "World"));
 
 
         // TODO: 6 - Store a lambda in a variable called 'exclaim' of type
         //  java.util.function.Function<String, String> that appends "!" to
         //  any string. Then reuse it: apply it to "Hello" and "Goodbye",
         //  printing both results.
+        java.util.function.Function<String, String> exclaim =
+            text -> text +  "!";
+
+        System.out.println(exclaim.apply("Hello"));
 
 
         // TODO: 7 - Call the processName method below, passing a lambda directly
